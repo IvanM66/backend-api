@@ -11,7 +11,8 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
 COPY --from=build /app/publish .
 
-ENV ASPNETCORE_URLS=http://+:8080
-EXPOSE 8080
+# Hugging Face Spaces требует порт 7860
+ENV ASPNETCORE_URLS=http://+:7860
+EXPOSE 7860
 
 ENTRYPOINT ["dotnet", "FeedbackApi.dll"]
