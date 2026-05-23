@@ -11,7 +11,7 @@ builder.Services.AddCors(options =>
         builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 });
 
-var connectionString = "Host=ep-restless-butterfly-ald0v8wi-pooler.c-3.eu-central-1.aws.neon.tech;Database=neondb;Username=neondb_owner;Password=npg_1v5incwuqtbo;SslMode=Require;";
+var connectionString = "postgresql://neondb_owner:npg_1v5inCwuQtBO@ep-restless-butterfly-ald0v8wi-pooler.c-3.eu-central-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require";
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString));
 
